@@ -9,6 +9,7 @@ Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
 Source0:	http://www.karico.fi/dpfs/files/%{name}-%{version}.tar.gz
 URL:		http://www.karico.fi/dpfs/
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A versatile, easily configurable ftp server featuring web based
@@ -19,6 +20,9 @@ files.
 Wielofunkcyjny, ³atwy w konfiguracji serwer ftp, którym administracja
 odbywa siê za pomoc± interfejsu WWW. Nie wymaga modyfikacji plików
 systemowych.
+
+%prep
+%setup -q
 
 %build
 %{__make}
