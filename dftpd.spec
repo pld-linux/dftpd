@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.karico.fi/dpfs/files/%{name}-%{version}.tar.gz
+# Source0-md5:	d03fa11049f1b09c019615e9ad2df58d
 URL:		http://www.karico.fi/dpfs/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
