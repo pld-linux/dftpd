@@ -22,7 +22,7 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install
+%{__make} install
 
 %files
 %defattr(644,root,root,755)
