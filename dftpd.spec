@@ -11,6 +11,11 @@ A versatile, easily configurable ftp server featuring web
 based administration. Requires no modifications to system
 configuration files.
 
+%description -l pl
+Wielofunkcyjny, ³atwy w konfiguracji serwer ftp, którym administracja
+odbywa siê za pomoc± interfejsu WWW. Nie wymaga modyfikacji plików
+systemowych.
+
 %build
 make
 
