@@ -5,8 +5,6 @@ Version:	1.3
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	http://www.karico.fi/dpfs/files/%{name}-%{version}.tar.gz
 URL:		http://www.karico.fi/dpfs/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
