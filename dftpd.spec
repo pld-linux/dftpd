@@ -18,7 +18,7 @@ odbywa siê za pomoc± interfejsu WWW. Nie wymaga modyfikacji plików
 systemowych.
 
 %build
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
