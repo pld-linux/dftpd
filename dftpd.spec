@@ -7,7 +7,10 @@ License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.karico.fi/dpfs/files/%{name}-%{version}.tar.gz
 # Source0-md5:	d03fa11049f1b09c019615e9ad2df58d
+Patch0:		%{name}-fix.patch
 URL:		http://www.karico.fi/dpfs/
+BuildRequires:	ncurses-devel
+Requires(post):	fileutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,13 +25,20 @@ systemowych.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -I/usr/include/ncurses"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install
+
+%{__make} install \
+	BINDIR=$RPM_BUILD_ROOT%{_bindir} \
+	CONFDIR=$RPM_BUILD_ROOT%{_sysconfdir}/dftpd \
+	DOCSDIR="`pwd`/docs"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -37,16 +47,14 @@ rm -rf $RPM_BUILD_ROOT
 touch /etc/dftpd/utmp.dftp
 chmod 0640 /etc/dftpd/utmp.dftp
 
-%preun
-rm -f /etc/dftpd/utmp.dftp
-
 %files
 %defattr(644,root,root,755)
-%doc README CHANGES TODO BUGS COPYING
-%{_prefix}/local/dftpd
+%doc BUGS CHANGES README TODO
+%attr(755,root,root) %{_bindir}/*
 %dir %{_sysconfdir}/dftpd
 %dir %{_sysconfdir}/dftpd/sview
-%{_sysconfdir}/dftpd/plugins
-%config %{_sysconfdir}/dftpd/dftpd.conf
-%config %{_sysconfdir}/dftpd/passwd.dftp
-%config %{_sysconfdir}/dftpd/group.dftp
+%attr(755,root,root) %{_sysconfdir}/dftpd/plugins
+%attr(640,root,root) %ghost %{_sysconfdir}/dftpd/utmp.dftp
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dftpd/dftpd.conf
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dftpd/passwd.dftp
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dftpd/group.dftp
