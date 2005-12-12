@@ -55,6 +55,6 @@ chmod 0640 /etc/dftpd/utmp.dftp
 %dir %{_sysconfdir}/dftpd/sview
 %attr(755,root,root) %{_sysconfdir}/dftpd/plugins
 %attr(640,root,root) %ghost %{_sysconfdir}/dftpd/utmp.dftp
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dftpd/dftpd.conf
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dftpd/passwd.dftp
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dftpd/group.dftp
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dftpd/dftpd.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dftpd/passwd.dftp
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dftpd/group.dftp
