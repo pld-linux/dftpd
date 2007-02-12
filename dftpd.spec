@@ -1,5 +1,5 @@
 Summary:	Standalone FTP server
-Summary(pl.UTF-8):   Samodzielny serwer FTP
+Summary(pl.UTF-8):	Samodzielny serwer FTP
 Name:		dftpd
 Version:	1.3
 Release:	1
