@@ -1,5 +1,5 @@
 Summary:	Standalone FTP server
-Summary(pl):	Samodzielny serwer FTP
+Summary(pl.UTF-8):   Samodzielny serwer FTP
 Name:		dftpd
 Version:	1.3
 Release:	1
@@ -18,9 +18,9 @@ A versatile, easily configurable FTP server featuring web based
 administration. Requires no modifications to system configuration
 files.
 
-%description -l pl
-Wielofunkcyjny, ³atwy w konfiguracji serwer FTP, którym administracja
-odbywa siê za pomoc± interfejsu WWW. Nie wymaga modyfikacji plików
+%description -l pl.UTF-8
+Wielofunkcyjny, Å‚atwy w konfiguracji serwer FTP, ktÃ³rym administracja
+odbywa siÄ™ za pomocÄ… interfejsu WWW. Nie wymaga modyfikacji plikÃ³w
 systemowych.
 
 %prep
